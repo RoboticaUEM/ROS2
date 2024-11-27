@@ -9,7 +9,7 @@ Publicador de imagenes. Captura imagenes desde la WebCam(0) por el topic especif
 
 **cv2_msg_test.py:**
 Codigo con todas las funciones de conversion de imagenes ROS <=> openCV.
-
+ 
 
 **websupprocess.py:**
 Visualizador de imagenes. Muestra imagenes imagenes publicadas en el topic especifico. Espera las imagenes comprimidas.
