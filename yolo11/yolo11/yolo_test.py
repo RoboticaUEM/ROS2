@@ -2,37 +2,36 @@
 
 from ultralytics import YOLO
 import cv2
+import numpy as np
 
-model = YOLO("model.pt")
+model = YOLO("/home/ibticae/yolo/yolo11n.pt", verbose=True)
+print(model.names)
+print(model.info(detailed = False, verbose = True))
 
 # from ndarray
-im2 = cv2.imread("bus.jpg")
-results = model.predict(source=im2, save=True, save_txt=True)  # save predictions as labels
+im2 = cv2.imread("/home/ibticae/yolo/bus.jpg")
+results = model.predict(source=im2, save=True, save_txt=True, verbose=False)  # save predictions as labels
 # results would be a generator which is more friendly to memory by setting stream=True
 # 2. return as a generator
-results = model.predict(source=0, stream=True)
+#results = model.predict(source=0, stream=True)
 
 for result in results:
-    # Detection
-    result.boxes.xyxy   # box with xyxy format, (N, 4)
-    result.boxes.xywh   # box with xywh format, (N, 4)
-    result.boxes.xyxyn  # box with xyxy format but normalized, (N, 4)
-    result.boxes.xywhn  # box with xywh format but normalized, (N, 4)
-    result.boxes.conf   # confidence score, (N, 1)
-    result.boxes.cls    # cls, (N, 1)
-
-    # Segmentation
-    result.masks.data      # masks, (N, H, W)
-    result.masks.xy        # x,y segments (pixels), List[segment] * N
-    result.masks.xyn       # x,y segments (normalized), List[segment] * N
-
-    # Classification
-    result.probs     # cls prob, (num_class, )
-
-# Each result is composed of torch.Tensor by default,
-# in which you can easily use following functionality:
-result = result.cuda()
-result = result.cpu()
-result = result.to("cpu")
-result = result.numpy()
-
+    print("1.-=======================================================================")
+    print(result)
+    print("2.-=======================================================================")
+    print(result.boxes)  # Print detection boxes
+    print(result.masks)  # Masks object for segmentation masks outputs
+    print(result.keypoints)  # Keypoints object for pose outputs
+    print(result.probs)  # Probs object for classification outputs
+    print(result.obb)  # Oriented boxes object for OBB outputs
+    result.show()  # Display the annotated image
+    #result.save(filename="result.jpg")  # Save annotated image
+    print(result.to_json(normalize=True, decimals=5))
+    print("3.-=======================================================================")
+    print(result.summary())
+    print("4.-=======================================================================")
+    import json
+    print(json.dumps(result.summary(normalize=True, decimals=6), indent=3))
+    print("5.-=======================================================================")
+    print(result.to_csv())
+    print("6.-=======================================================================")

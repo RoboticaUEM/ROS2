@@ -1,9 +1,9 @@
 import rclpy
 from rclpy.node import Node
 from std_msgs.msg import Bool
-
-import pyfirmata2
 import sys
+import pyfirmata2
+
 
 class FirmataSuscriber(Node):
 
@@ -32,11 +32,11 @@ class FirmataSuscriber(Node):
 def main(args=None):
     rclpy.init(args=args)
 
-    firmataSuscriber = FirmataSuscriber()
+    firmata_suscriber = FirmataSuscriber()
 
-    rclpy.spin(firmataSuscriber)
+    rclpy.spin(firmata_suscriber)
 
-    firmataSuscriber.destroy_node()
+    firmata_suscriber.destroy_node()
     rclpy.shutdown()
 
 
