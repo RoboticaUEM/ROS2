@@ -8,7 +8,7 @@ class ImageSubscriber(Node):
   
   def __init__(self):
     super().__init__('ImgYoloProcessSubscribe')
-    self.subscription = self.create_subscription(CompressedImage, '/webcam/image_raw/yoloProcess', self.listener_callback, 1)
+    self.subscription = self.create_subscription(CompressedImage, '/yolo/image/compressed', self.listener_callback, 1)
     self.subscription # prevent unused variable warning
     self.br = CvBridge()
     
