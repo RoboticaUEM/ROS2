@@ -37,9 +37,10 @@ Test de yolo.
 
 # Lanzado:
 Para lazar la una demo de funcionamiento de este paquete, se necesitan 3 terminales, en las que tenemos que ejecutar estas tres órdenes:
-1. ros2 run yolo11 webpub 
-2. ros2 run yolo11 yolo_process 
-3. ros2 run yolo11 view_imgprocess 
+
+    ros2 run yolo11 webpub
+    ros2 run yolo11 yolo_process
+    ros2 run yolo11 view_imgprocess 
 
 # Problemas
 Si tenéis problemas con la instalación de Yolo, porque se interrumpe la instalación, una de las maneras de arreglar el error es con el comando **--no-cache-dir**
