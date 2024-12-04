@@ -16,7 +16,7 @@ class YoloProcessCompressed(Node):
 
     def __init__(self):
         super().__init__('YoloProcessCompressed')
-        self.model = YOLO("/home/ibticae/yolo/yolo11n.pt", verbose=True)
+        self.model = YOLO("/home/mixi/yolo11/yolo11n.pt", verbose=True)
         self.subscription_img = self.create_subscription(CompressedImage,'/webcam/image/compressed',self.callback,1)
         self.subscription_img  # prevent unused variable warning
         self.publisher_json = self.create_publisher(String, '/yolo/inference', 1)

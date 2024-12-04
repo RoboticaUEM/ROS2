@@ -4,12 +4,12 @@ from ultralytics import YOLO
 import cv2
 import numpy as np
 
-model = YOLO("/home/ibticae/yolo/yolo11n.pt", verbose=True)
+model = YOLO("/home/mixi/yolo11/yolo11n.pt", verbose=True)
 print(model.names)
 print(model.info(detailed = False, verbose = True))
 
 # from ndarray
-im2 = cv2.imread("/home/ibticae/yolo/bus.jpg")
+im2 = cv2.imread("/home/mixi/yolo11/bus.jpg")
 results = model.predict(source=im2, save=True, save_txt=True, verbose=False)  # save predictions as labels
 # results would be a generator which is more friendly to memory by setting stream=True
 # 2. return as a generator

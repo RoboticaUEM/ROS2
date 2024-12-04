@@ -23,6 +23,7 @@ setup(
             'webpub = yolo11.webpub:main',
             'yolo_test = yolo11.yolo_test:main',
             'view_imgprocess = yolo11.websupprocess:main',
+            'yolo_process = yolo11.yolo_process:main',
         ],
     },
 )
