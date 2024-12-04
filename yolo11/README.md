@@ -2,18 +2,13 @@
 
 ## Códigos:
 
-<details>
-<summary>webpub.py:</summary>
-
 **webpub.py:**
 Publicador de imágenes. Captura imágenes desde la WebCam(0) por el topic especifico en formato comprimido.
 * Topic: /webcam/image/compressed
 * CompressedImage: Comprimido en formato "jpeg"
 
-</details>
-
 **cv2_msg_test.py:**
-Código con todas las funciones de conversión de imágenes ROS <=> openCV.
+Código para test con todas las funciones de conversión de imágenes ROS <=> openCV.
 
 **websupprocess.py:**
 Visualizador de imágenes. Muestra imágenes publicadas en el topic específico. Espera las imágenes comprimidas.
@@ -27,7 +22,7 @@ Procesa con yolov11n.pt las imágenes, devolviendo un json con el resultado del 
 * topicOut: /yolo/inference
 
 **yolo_test.py**
-Test de yolo.
+Código para test con funciones de pruebas de yolo.
 
 ## Uso:
 ### entry_points:
