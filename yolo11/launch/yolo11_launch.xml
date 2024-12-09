@@ -1,5 +1,0 @@
-<launch>
-    <node pkg="yolo11" exec="webpub" name="webpub" namespace="yoloprocess"/>
-    <node pkg="yolo11" exec="view_imgprocess" name="websupprocess" namespace="yoloprocess"/>
-    <node pkg="yolo11" exec="yolo_process" name="yolo_process" namespace="yoloprocess"/>
-</launch>
