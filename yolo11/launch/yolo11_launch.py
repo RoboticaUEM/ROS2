@@ -12,13 +12,13 @@ def generate_launch_description():
         Node(
             package='yolo11',
             namespace='yoloprocess',
-            executable='websupprocess',
+            executable='view_imgprocess',
             name='view_imgprocess'
         ),
         Node(
             package='yolo11',
             namespace='yoloprocess',
-            executable='yolo_test',
-            name='yolo_test'
+            executable='yolo_process',
+            name='yolo_process'
         )
     ])
