@@ -30,12 +30,17 @@ Código para test con funciones de pruebas de yolo.
 * yolo_test = yolo11.yolo_test:main
 * view_imgprocess = yolo11.websupprocess:main
 
-# Lanzado:
-Para lazar la una demo de funcionamiento de este paquete, se necesitan 3 terminales, en las que tenemos que ejecutar estas tres órdenes:
+# Ejecución:
+Para ejecutar cada uno de los nodos de este paquete, se necesitan 3 terminales, en las que tenemos que ejecutar estas tres órdenes:
 
     ros2 run yolo11 webpub
     ros2 run yolo11 yolo_process
-    ros2 run yolo11 view_imgprocess 
+    ros2 run yolo11 view_imgprocess
+
+# Lanzado:
+Para lazar la demo de funcionamiento de este paquete, con los tres paquetes a la vez, se puede usar el comando:
+
+    ros2 launch yolo11 yolo11_launch.py
 
 # Problemas
 Si tenéis problemas con la instalación de Yolo, porque se interrumpe la instalación, una de las maneras de arreglar el error es con el comando **--no-cache-dir**
