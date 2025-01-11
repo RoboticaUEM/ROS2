@@ -6,6 +6,8 @@ from sensor_msgs.msg import Image, CompressedImage
 from std_msgs.msg import String
 from cv_bridge import CvBridge
 from ultralytics import YOLO
+from std_msgs.msg import Header
+
 import cv2
 #import datetime
     
@@ -33,10 +35,17 @@ class YoloProcessCompressed(Node):
         msg_json = String()
         # run the YOLO model on the frame
         result = self.model.predict(self.br.compressed_imgmsg_to_cv2(msg), verbose=False, classes=[0,39])[0]
-        self.get_logger().info('result: "%s"' % result.verbose())
-        self.publisher_img.publish(self.br.cv2_to_compressed_imgmsg(result.plot(), dst_format='jpeg'))
-        #msg_json.data = result.to_json()
-        msg_json.data = str(result.summary(normalize=True, decimals=6))
+        self.get_logger().info('result: "%s" ' % result.verbose())
+        self.get_logger().info("tiempo: [{}]".format(self.get_clock().now().seconds))
+        frame_compressed = self.br.cv2_to_compressed_imgmsg(result.plot(), dst_format='jpeg')
+        frame_compressed.format = "jpeg"
+        frame_compressed.header = Header()
+        #frame_compressed.header.seq = self.sec_uint32
+        frame_compressed.header.stamp = self.get_clock().now().to_msg()
+        frame_compressed.header.frame_id = "Image Compressed"
+        self.publisher_img.publish(frame_compressed)
+        msg_json.data = result.to_json(normalize=True, decimals=6)
+        #msg_json.data = str(result.summary(normalize=True, decimals=6))
         self.publisher_json.publish(msg_json)
 
 
